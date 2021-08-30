@@ -1,18 +1,16 @@
 /*====== Fonts ======*/
-@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap');
-
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap");
 
 /*====== Variables ======*/
 :root {
-  --yellow: #EAC926;
-  --dark-blue: #03264C;
+  --yellow: #eac926;
+  --dark-blue: #03264c;
   --light-blue: #1259c3;
   --gray: #666666;
   --light-gray: #ebebeb;
   --green: #39b54a;
-  --base-font-family: 'Roboto', sans-serif
+  --base-font-family: "Roboto", sans-serif;
 }
-
 
 /*====== Basics ======*/
 * {
@@ -64,7 +62,6 @@ hr {
   border-bottom: solid 1px var(--light-gray);
 }
 
-
 /*====== Main Header ======*/
 .main-header {
   padding: 15px 0;
@@ -109,7 +106,6 @@ hr {
   cursor: pointer;
 }
 
-
 /*====== Main Navbar ======*/
 .btn-toggle-navbar {
   background-color: var(--dark-blue);
@@ -139,7 +135,6 @@ hr {
   border-bottom: solid 1px var(--gray);
 }
 
-
 /*====== Banner ======*/
 .banner {
   background-image: url(/images/img-home-banner.jpg);
@@ -148,7 +143,6 @@ hr {
   background-position: center center;
   height: 100px;
 }
-
 
 /*====== Products ======*/
 .products-wrapper {
@@ -241,7 +235,6 @@ hr {
   box-shadow: 0 0 5px var(--green);
 }
 
-
 /*====== Footer ======*/
 .main-footer {
   background-color: #ffffff;
@@ -280,7 +273,6 @@ hr {
   color: var(--gray);
   padding: 15px 0;
 }
-
 
 /*====== Product Detail ======*/
 .product-detail {
@@ -381,7 +373,6 @@ hr {
   background-color: rgb(248, 69, 37);
 }
 
-
 /*====== Formularios ======*/
 .form-label {
   display: inline-block;
@@ -406,8 +397,6 @@ textarea.form-input {
   resize: vertical;
   padding: 15px;
 }
-
-
 
 /*====== Media-Queries ======*/
 @media (min-width: 768px) {
