@@ -20,7 +20,7 @@ const controller = {
 	search: (req, res) => {
 		const result = []
 		products.forEach(product => {
-			if(product.name.toLowerCase().includes(req.query.keywords.toLowerCase())) {
+			if (product.name.toLowerCase().includes(req.query.keywords.toLowerCase())) {
 				result.push(product)
 			}
 		});
