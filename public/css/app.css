@@ -1,7 +1,7 @@
-/*====== Fonts ======*/
+/* Fonts */
 @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap");
 
-/*====== Variables ======*/
+/* Variables */
 :root {
   --yellow: #eac926;
   --dark-blue: #03264c;
@@ -12,7 +12,7 @@
   --base-font-family: "Roboto", sans-serif;
 }
 
-/*====== Basics ======*/
+/* Basics */
 * {
   box-sizing: border-box;
 }
@@ -106,7 +106,7 @@ hr {
   cursor: pointer;
 }
 
-/*====== Main Navbar ======*/
+/* Main Navbar */
 .btn-toggle-navbar {
   background-color: var(--dark-blue);
   color: #ffffff;
@@ -135,7 +135,7 @@ hr {
   border-bottom: solid 1px var(--gray);
 }
 
-/*====== Banner ======*/
+/* Banner */
 .banner {
   background-image: url(/images/img-home-banner.jpg);
   background-repeat: no-repeat;
@@ -144,7 +144,7 @@ hr {
   height: 100px;
 }
 
-/*====== Products ======*/
+/* Products */
 .products-wrapper {
   margin-top: 30px;
   margin-bottom: 30px;
@@ -235,7 +235,7 @@ hr {
   box-shadow: 0 0 5px var(--green);
 }
 
-/*====== Footer ======*/
+/* Footer */
 .main-footer {
   background-color: #ffffff;
   padding: 20px 0;
@@ -274,7 +274,7 @@ hr {
   padding: 15px 0;
 }
 
-/*====== Product Detail ======*/
+/* Product Detail */
 .product-detail {
   background-color: #ffffff;
   border-radius: 8px;
@@ -373,7 +373,7 @@ hr {
   background-color: rgb(248, 69, 37);
 }
 
-/*====== Formularios ======*/
+/* Formularios */
 .form-label {
   display: inline-block;
   font-size: 1.6em;
@@ -398,7 +398,7 @@ textarea.form-input {
   padding: 15px;
 }
 
-/*====== Media-Queries ======*/
+/* Media-Queries */
 @media (min-width: 768px) {
   .main-header_credit-link {
     margin-top: 0;
