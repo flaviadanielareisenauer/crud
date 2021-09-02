@@ -16,7 +16,7 @@
 					</div>
 
 					<% products.forEach(product=> { %>
-						<div class="col-12 col-sm-6 col-lg-3">
+						<div class="col-12 col-sm-6 col-lg-3" id="<%= product.id %>">
 							<section class="product-box">
 								<a href="/products/detail/<%- product.id %>">
 									<figure class="product-box_image">
