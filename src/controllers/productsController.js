@@ -14,15 +14,15 @@ const controller = {
 	// Root - Show all products
 	index: (req, res) => {
 		res.render('products', {
-			products, 
+			products,
 			toThousand
-		})		
+		})
 	},
 
 	// Detail - Detail from one product
 	detail: (req, res) => {
 		const product = products.find(product => product.id === +req.params.id);
-		
+
 		res.render('detail', {
 			product,
 			toThousand
@@ -31,24 +31,24 @@ const controller = {
 
 	// Create - Form to create
 	create: (req, res) => {
-		res.render('product-create-form')		
+		res.render('product-create-form')
 	},
-	
+
 	// Create -  Method to store
 	store: (req, res) => {
 		const lastID = 1;
 
 		products.forEach(product => {
-			if(product.id > lastId) {
-				lastId = product.id 
+			if (product.id > lastId) {
+				lastId = product.id
 			}
 		})
 
-		const { 
-			name, 
-			price, 
-			discount, 
-			category, 
+		const {
+			name,
+			price,
+			discount,
+			category,
 			description } = req.body
 
 		const newProduct = {
@@ -58,7 +58,7 @@ const controller = {
 			discount,
 			category,
 			description,
-			image: req.file ? req.file.filename : "default-image.png"		
+			image: req.file ? req.file.filename : "default-image.png"
 		}
 
 		products.push(newProduct)
@@ -77,7 +77,7 @@ const controller = {
 		})
 
 
-		
+
 	},
 
 
@@ -118,7 +118,7 @@ const controller = {
 
 
 	// Delete - Delete one product from DB
-	destroy : (req, res) => {
+	destroy: (req, res) => {
 		// Do the magic
 	}
 };
