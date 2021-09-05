@@ -4,20 +4,18 @@
 <%- include('partials/head', {title: 'Resultados de tu búsqueda' }) %>
 
 	<body>
-		<!-- Header -->
-		<%- include('partials/headerNavbar') %>
-			<!-- /Header -->
 
-			<!-- Banner -->
+		<%- include('partials/headerNavbar') %>
+			<!-- Header -->
+		
 			<div class="banner"></div>
-			<!-- /Banner -->
+			<!-- Banner -->
 
 			<!-- todos los productos -->
 			<div class="container products-wrapper">
 				<div class="row">
 					<div class="col-12">
-						<h2 class="products-title">Resultados de la búsqueda: <%= search %>
-						</h2>
+						<h2 class="products-title">Resultados de la búsqueda: <%= search %></h2>
 					</div>
 
 					<% if (result.length> 0) { %>
@@ -29,37 +27,27 @@
 											<img src="/images/products/<%- product.image %>" alt="imagen de producto">
 										</figure>
 										<article class="product-box_data">
-											<h2>
-												<%- toThousand(product.price - product.price * product.discount / 100)
-													%>
-											</h2>
-											<span>
-												<%- product.discount !==0 ? `${product.discount}% OFF` : "" %>
-											</span>
-											<p>
-												<%- product.name %>
-											</p>
+											<h2><%- toThousand(product.price - product.price * product.discount / 100) %></h2>
+											<span><%- product.discount !==0 ? `${product.discount}% OFF` : "" %></span>
+											<p><%- product.name %></p>
 											<i class="fas fa-truck"></i>
 										</article>
 									</a>
 								</section>
 							</div>
-							<% }) %>
+						<% }) %>
 
-								<% } else { %>
-									<div class="col-12">
-										<h2 class="products-title" style="color: tomato;">No hay productos que coincidan
-											con esa
-											búsqueda</h2>
-									</div>
-									<% } %>
+							<% } else { %>
+								<div class="col-12">
+									<h2 class="products-title" style="color: tomato;">No hay productos que coincidan con esa búsqueda</h2>
+								</div>
+								<% } %>
 				</div>
 			</div>
 			<!-- /todos los productos -->
 
-			<!-- footer -->
 			<%- include('partials/footer') %>
-				<!-- /footer -->
+				<!-- footer -->
 	</body>
 
 </html>

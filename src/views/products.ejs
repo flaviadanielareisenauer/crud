@@ -4,9 +4,9 @@
 <%- include('partials/head', {title: 'Todos los productos' }) %>
 
 	<body>
-		<!-- Header -->
+
 		<%- include('partials/headerNavbar') %>
-			<!-- /Header -->
+			<!-- Header -->
 
 			<!-- todos los productos -->
 			<div class="container products-wrapper">
@@ -23,29 +23,21 @@
 										<img src="/images/products/<%- product.image %>" alt="imagen de producto">
 									</figure>
 									<article class="product-box_data">
-										<h2>
-											<%- toThousand(product.price - product.price * product.discount / 100) %>
-										</h2>
-										<span>
-											<%- product.discount !==0 ? `${product.discount}% OFF` : "" %>
-										</span>
-										<p>
-											<%- product.name %>
-										</p>
+										<h2><%- toThousand(product.price - product.price * product.discount / 100) %></h2>
+										<span><%- product.discount !==0 ? `${product.discount}% OFF` : "" %></span>
+										<p><%- product.name %></p>
 										<i class="fas fa-truck"></i>
 									</article>
 								</a>
 							</section>
 						</div>
 						<% }) %>
-
 				</div>
 			</div>
 			<!-- /todos los productos -->
 
-			<!-- footer -->
 			<%- include('partials/footer') %>
-				<!-- /footer -->
+				<!-- footer -->
 	</body>
 
 </html>
