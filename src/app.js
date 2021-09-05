@@ -23,8 +23,8 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '/views')); // Define la ubicación de la carpeta de las Vistas
 
 
-// ************ WRITE YOUR CODE FROM HERE ************
-// ************ Route System require and use() ************
+// WRITE YOUR CODE FROM HERE 
+// Route System require and use() 
 const mainRouter = require('./routes/main'); // Rutas main
 const productsRouter = require('./routes/products'); // Rutas /products
 

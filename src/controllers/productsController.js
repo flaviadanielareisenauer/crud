@@ -3,21 +3,21 @@ const path = require('path');
 
 const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-const writeJson = (database) => {
+const writeJSON = (dataBase) => {
 	fs.writeFileSync(path.join(__dirname, '../data/productsDataBase.json'), JSON.stringify(dataBase), "utf-8")
 }
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const controller = {
-	// Root - Show all products
 	index: (req, res) => {
 		res.render('products', {
 			products,
 			toThousand
 		})
 	},
-	// Detail - Detail from one product
+
+	// Detail from one product
 	detail: (req, res) => {
 		const product = products.find(product => product.id === +req.params.id);
 
@@ -27,20 +27,20 @@ const controller = {
 		})
 	},
 
-	// Create - Form to create
+	// Create
 	create: (req, res) => {
 		res.render('product-create-form')
 	},
 
-	// Create -  Method to store
+	// Method to store
 	store: (req, res) => {
-		const lastID = 1;
+		const lastId = 1;
 
 		products.forEach(product => {
 			if (product.id > lastId) {
 				lastId = product.id
 			}
-		})
+		});
 
 		const {
 			name,
@@ -60,65 +60,62 @@ const controller = {
 		}
 
 		products.push(newProduct)
-
-		writeJson(products)
+		writeJSON(products)
 
 		res.redirect(`/products#${newProduct.id}`)
 	},
 
-	// Update - Form to edit
+	// Form to edit
 	edit: (req, res) => {
 		const product = products.find(product => product.id === +req.params.id);
 
 		res.render('product-edit-form', {
 			product,
 		})
-
-
-
 	},
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	// Update - Method to update
+	// Method to update
 	update: (req, res) => {
-		// Do the magic
+		const {
+			name,
+			price,
+			discount,
+			category,
+			description } = req.body
+
+		products.forEach(product => {
+			if (product.id === +req.params.id) {
+				product.id = product.id,
+				product.name = name,
+				product.price = price,
+				product.discount = discount,
+				product.category = category,
+				product.description = description,
+				product.image = req.file ? req.file.filename : product.image
+			}
+		})
+
+		writeJSON(products)
+
+		res.send(`Has editado el producto${product.name}`)
 	},
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	// Delete - Delete one product from DB
+	// Delete one product 
 	destroy: (req, res) => {
-		// Do the magic
+		const product = products.find(product => product.id === +req.params.id);
+
+		products.forEach(product => {
+			if (product.id === +req.params.id) {
+				const productToDestroy = products.indexOf(product);
+				products.splice(productToDestroy, 1)
+			}
+		})
+
+		writeJSON(products)
+
+		res.send(`Has eliminado el producto${product.name}`)
 	}
 };
+
 
 module.exports = controller;
