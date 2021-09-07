@@ -3,6 +3,7 @@ const path = require('path');
 
 const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+
 const writeJSON = (dataBase) => {
 	fs.writeFileSync(path.join(__dirname, '../data/productsDataBase.json'), JSON.stringify(dataBase), "utf-8")
 }
@@ -47,7 +48,7 @@ const controller = {
 			price,
 			discount,
 			category,
-			description } = req.body
+			description } = req.body;
 
 		const newProduct = {
 			id: lastId + 1,
@@ -57,10 +58,10 @@ const controller = {
 			category,
 			description,
 			image: req.file ? req.file.filename : "default-image.png"
-		}
+		};
 
-		products.push(newProduct)
-		writeJSON(products)
+		products.push(newProduct);
+		writeJSON(products);
 
 		res.redirect(`/products#${newProduct.id}`)
 	},
@@ -81,7 +82,7 @@ const controller = {
 			price,
 			discount,
 			category,
-			description } = req.body
+			description } = req.body;
 
 		products.forEach(product => {
 			if (product.id === +req.params.id) {
