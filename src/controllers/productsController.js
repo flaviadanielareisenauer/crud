@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
-const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 const writeJSON = (dataBase) => {
 	fs.writeFileSync(path.join(__dirname, '../data/productsDataBase.json'), JSON.stringify(dataBase), "utf-8")
@@ -20,7 +20,7 @@ const controller = {
 
 	// Detail from one product
 	detail: (req, res) => {
-		let product = products.find(product => product.id === +req.params.id);
+		product = products.find(product => product.id === +req.params.id);
 
 		res.render('detail', {
 			product,
@@ -68,7 +68,7 @@ const controller = {
 
 	// Form to edit
 	edit: (req, res) => {
-		let product = products.find(product => product.id === +req.params.id);
+		product = products.find(product => product.id === +req.params.id);
 
 		res.render('product-edit-form', {
 			product,
@@ -103,7 +103,7 @@ const controller = {
 
 	// Delete one product 
 	destroy: (req, res) => {
-		let product = products.find(product => product.id === +req.params.id);
+		product = products.find(product => product.id === +req.params.id);
 
 		products.forEach(product => {
 			if (product.id === +req.params.id) {
