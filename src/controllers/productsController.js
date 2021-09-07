@@ -20,7 +20,7 @@ const controller = {
 
 	// Detail from one product
 	detail: (req, res) => {
-		const product = products.find(product => product.id === +req.params.id);
+		let product = products.find(product => product.id === +req.params.id);
 
 		res.render('detail', {
 			product,
@@ -35,7 +35,7 @@ const controller = {
 
 	// Method to store
 	store: (req, res) => {
-		const lastId = 1;
+		let lastId = 1;
 
 		products.forEach(product => {
 			if (product.id > lastId) {
@@ -43,14 +43,14 @@ const controller = {
 			}
 		});
 
-		const {
+		let {
 			name,
 			price,
 			discount,
 			category,
 			description } = req.body;
 
-		const newProduct = {
+		let newProduct = {
 			id: lastId + 1,
 			name,
 			price,
@@ -68,7 +68,7 @@ const controller = {
 
 	// Form to edit
 	edit: (req, res) => {
-		const product = products.find(product => product.id === +req.params.id);
+		let product = products.find(product => product.id === +req.params.id);
 
 		res.render('product-edit-form', {
 			product,
@@ -77,7 +77,7 @@ const controller = {
 
 	// Method to update
 	update: (req, res) => {
-		const {
+		let {
 			name,
 			price,
 			discount,
@@ -103,7 +103,7 @@ const controller = {
 
 	// Delete one product 
 	destroy: (req, res) => {
-		const product = products.find(product => product.id === +req.params.id);
+		let product = products.find(product => product.id === +req.params.id);
 
 		products.forEach(product => {
 			if (product.id === +req.params.id) {
