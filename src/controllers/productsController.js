@@ -2,9 +2,9 @@ const fs = require('fs');
 const path = require('path');
 
 const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
-let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
-const writeJSON = (dataBase) => {
+const writeJson = (dataBase) => {
 	fs.writeFileSync(path.join(__dirname, '../data/productsDataBase.json'), JSON.stringify(dataBase), "utf-8")
 }
 
@@ -20,7 +20,7 @@ const controller = {
 
 	// Detail from one product
 	detail: (req, res) => {
-		product = products.find(product => product.id === +req.params.id);
+		let product = products.find(product => product.id === +req.params.id);
 
 		res.render('detail', {
 			product,
@@ -43,7 +43,7 @@ const controller = {
 			}
 		});
 
-		let {
+		const {
 			name,
 			price,
 			discount,
@@ -58,26 +58,26 @@ const controller = {
 			category,
 			description,
 			image: req.file ? req.file.filename : "default-image.png"
-		};
+		}
 
 		products.push(newProduct);
-		writeJSON(products);
+		writeJson(products);
 
 		res.redirect(`/products#${newProduct.id}`)
 	},
 
 	// Form to edit
 	edit: (req, res) => {
-		product = products.find(product => product.id === +req.params.id);
+		let product = products.find(product => product.id === +req.params.id);
 
 		res.render('product-edit-form', {
-			product,
+			product
 		})
 	},
 
 	// Method to update
 	update: (req, res) => {
-		let {
+		const {
 			name,
 			price,
 			discount,
@@ -96,25 +96,25 @@ const controller = {
 			}
 		})
 
-		writeJSON(products)
+		writeJson(products)
 
-		res.send(`Has editado el producto${product.name}`)
+		res.send(`Has editado el producto ${name}`)
 	},
 
 	// Delete one product 
 	destroy: (req, res) => {
-		product = products.find(product => product.id === +req.params.id);
+		let product = products.find(product => product.id === +req.params.id);
 
 		products.forEach(product => {
 			if (product.id === +req.params.id) {
-				const productToDestroy = products.indexOf(product);
+				let productToDestroy = products.indexOf(product);
 				products.splice(productToDestroy, 1)
 			}
 		})
 
-		writeJSON(products)
+		writeJson(products)
 
-		res.send(`Has eliminado el producto${product.name}`)
+		res.send(`Has eliminado el producto ${product.name}`)
 	}
 };
 
