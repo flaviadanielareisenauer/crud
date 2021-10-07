@@ -19,7 +19,7 @@ const controller = {
 	},
 	search: (req, res) => {
 		const result = []
-// Le aplico un forEach para recorrer todos los productos, en cada producto le voy a preguntar si de ese producto que esto iterando en su propiedad name incluye lo que viene por req.query.keywords. Si incluye la palabra que pasamos por search, esta se agrega en la variable result y pushea el producto que encontro
+		// Le aplico un forEach para recorrer todos los productos, en cada producto le voy a preguntar si de ese producto que esto iterando en su propiedad name incluye lo que viene por req.query.keywords. Si incluye la palabra que pasamos por search, esta se agrega en la variable result y pushea el producto que encontro
 		products.forEach(product => {
 			if (product.name.toLowerCase().includes(req.query.keywords.toLowerCase())) {
 				result.push(product)
