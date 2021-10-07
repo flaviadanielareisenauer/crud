@@ -30,6 +30,7 @@
 									<article class="product-box_data">
 										<h2><%- toThousand(product.price - product.price * product.discount / 100) %></h2>
 										<span><%- product.discount !==0 ? `${product.discount}% OFF` : "" %></span>
+			<!--IF ternario: si el descuento es distinto de CERO entonces mostrame el product.discount %off o sino (:) no muestres nada  -->
 										<p><%- product.name %></p>
 										<i class="fas fa-truck"></i>
 									</article>

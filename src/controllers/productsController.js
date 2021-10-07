@@ -35,6 +35,7 @@ const controller = {
 
 	// Method to store
 	store: (req, res) => {
+	// Primero capturamos el ultimo id, luego traemos los datos del req.body y creamos una variable (newProduct), asignandole los campos para poder crear este nuevo prodcuto y luego pushearlo al array. 
 		let lastId = 1;
 
 		products.forEach(product => {
@@ -77,6 +78,7 @@ const controller = {
 
 	// Method to update
 	update: (req, res) => {
+	// Me traigo el req.body (destructuracion) traigo el array de products, le aplico el metodo forEach a cada uno de los elementos que recorre y pregunto: si el producto que estoy recorriendo en este momento en su propiedad id es === a lo que me esta viniendo por parametro? de ser asi ese producto pasa a la validacion.
 		const {
 			name,
 			price,
